@@ -45,7 +45,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "comma/semicolon";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMMICOLON>;
+            bindings = <&kp COMMA>, <&kp SEMICOLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot_col: dot_colon {
