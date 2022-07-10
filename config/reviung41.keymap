@@ -57,13 +57,13 @@
         };
         c_cedilla: c_cedilla {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            rabel = "c_cedilla";
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE &kp C>;
         };
         i_trema: i_trema {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "i_trema";
             #binding-cells = <0>;
             bindings = <&kp LEFT_SHIFT &kp DOUBLE_QUOTES &kp I>;
         };
@@ -81,7 +81,7 @@
             //                         | ALT | LWR | SPC | RSE  | ALT |
 
             bindings = <
-          &kp TAB   &kp B   &sl 4     &kp P     &kp O  &kp SLASH              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
+          &kp TAB   &kp B   &sl 4     &kp P     &kp O  &kp W              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
  &mt LCTRL ESCAPE   &kp A   &kp U     &kp I     &kp E      &co_q              &kp C   &kp T            &kp S   &kp R   &kp N      &kp M
      &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &dot_col     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F  &kp ENTER
                                    &kp LALT     &mo 1             &kp SPACE           &mo 2  &kp RIGHT_SHIFT
@@ -89,7 +89,7 @@
         };
 
         lower_layer {
-            // ----------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------
             // |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
             // |    |  _  |  +  |  {  |  }  | "|" |   | LFT | DWN |  UP | RGT |  `  |     ~     |
             // |    | ESC | GUI | ALT | CAPS|  "  |   | HOME| END | PGUP| PGDN| PRSC| SHFT(RET) |
@@ -136,7 +136,7 @@
         ACCENTS {
             bindings = <
  &trans    &trans  &e_acute  &e_acute    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &a_grave  &u_grave    &trans  &e_grave  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &a_grave  &u_grave    &i_trema  &e_grave  &trans          &trans  &trans  &trans  &trans  &trans  &trans
  &trans    &trans    &trans    &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
                                &trans    &trans          &trans          &trans  &trans
             >;
