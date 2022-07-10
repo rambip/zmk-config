@@ -41,12 +41,27 @@
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp U>;
         };
+        co_sem: comma_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "comma/semicolon";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMMICOLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        dot_col: dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "dot/colon";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            // FIXME: dessin
             // -------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
@@ -55,8 +70,8 @@
 
             bindings = <
           &kp TAB   &kp B   &sl 4     &kp P    &kp O  &kp SLASH              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
- &mt LCTRL ESCAPE   &kp A   &kp U     &kp I    &kp E  &kp COMMA              &kp C   &kp T            &kp S   &kp R   &kp N  &kp ENTER
-     &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &kp DOT     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F      &kp M
+ &mt LCTRL ESCAPE   &kp A   &kp U     &kp I    &kp E  &co_sem              &kp C   &kp T            &kp S   &kp R   &kp N  &kp M
+     &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &dot_col     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F      &kp ENTER
                                    &kp LALT    &mo 1             &kp SPACE           &mo 2  &kp RIGHT_SHIFT
             >;
         };
