@@ -61,6 +61,12 @@
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE &kp C>;
         };
+        i_trema: i_trema {
+            compatible = "zmk,behavior-macro";
+            label = "new_macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp DOUBLE_QUOTES &kp I>;
+        };
     };
 
     keymap {
