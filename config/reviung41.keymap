@@ -57,7 +57,7 @@
         };
         c_cedilla: c_cedilla {
             compatible = "zmk,behavior-macro";
-            rabel = "c_cedilla";
+            label = "c_cedilla";
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE &kp C>;
         };
