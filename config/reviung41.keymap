@@ -13,39 +13,39 @@
     macros {
         e_acute: e_acute {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "e_acute";
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE &kp E>;
         };
         e_grave: e_grave {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "e_grave";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp E>;
         };
         a_grave: a_grave {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "a_grave";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp A>;
         };
         quote: quote {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "quote";
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE &kp SPACE>;
         };
         u_grave: u_grave {
             compatible = "zmk,behavior-macro";
-            label = "new_macro";
+            label = "u_grave";
             #binding-cells = <0>;
             bindings = <&kp GRAVE &kp U>;
         };
-        co_sem: comma_semicolon {
+        co_q: comma_intterrogation {
             compatible = "zmk,behavior-mod-morph";
-            label = "comma/semicolon";
+            label = "comma/questionmark";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMICOLON>;
+            bindings = <&kp COMMA>, <&kp QMARK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot_col: dot_colon {
@@ -70,7 +70,7 @@
 
             bindings = <
           &kp TAB   &kp B   &sl 4     &kp P    &kp O  &kp SLASH              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
- &mt LCTRL ESCAPE   &kp A   &kp U     &kp I    &kp E  &co_sem              &kp C   &kp T            &kp S   &kp R   &kp N  &kp M
+ &mt LCTRL ESCAPE   &kp A   &kp U     &kp I    &kp E  &co_q              &kp C   &kp T            &kp S   &kp R   &kp N  &kp M
      &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &dot_col     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F      &kp ENTER
                                    &kp LALT    &mo 1             &kp SPACE           &mo 2  &kp RIGHT_SHIFT
             >;
