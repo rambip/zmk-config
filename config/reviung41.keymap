@@ -81,7 +81,7 @@
             //                         | ALT | LWR | SPC | RSE  | ALT |
 
             bindings = <
-          &kp TAB   &kp B   &e_acute 4     &kp P     &kp O  &sl 4              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
+          &kp TAB   &kp B   &e_acute     &kp P     &kp O  &sl 4              &kp W   &kp V            &kp D   &kp L   &kp J   &kp BSPC
  &mt LCTRL ESCAPE   &kp A   &kp U     &kp I     &kp E      &co_q              &kp C   &kp T            &kp S   &kp R   &kp N      &kp M
      &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &dot_col     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F  &kp ENTER
                                    &kp LALT     &mo 1             &kp SPACE           &mo 2  &kp RIGHT_SHIFT
