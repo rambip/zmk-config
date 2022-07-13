@@ -208,10 +208,10 @@
 
         ACCENTS {
             bindings = <
- &trans           &trans  &kp SINGLE_QUOTE  &kp SINGLE_QUOTE  &trans     &trans                     &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &kp NON_US_HASH         &kp SLASH          &i_trema  &e_hat     &kp GT          &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
- &trans           &trans            &trans            &trans  &kp LT  &kp CARET                     &trans  &trans  &trans  &trans  &trans  &trans
-                                                      &trans  &trans             &trans                     &trans  &trans
+ &trans           &trans  &kp SINGLE_QUOTE  &kp SINGLE_QUOTE  &trans             &trans          &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &kp NON_US_HASH         &kp SLASH          &i_trema  &e_hat  &kp RIGHT_BRACKET          &trans  &trans  &trans  &trans  &trans  &trans
+ &trans           &trans            &trans            &trans  &kp LT          &kp CARET          &trans  &trans  &trans  &trans  &trans  &trans
+                                                      &trans  &trans                     &trans          &trans  &trans
             >;
         };
     };
