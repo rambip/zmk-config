@@ -95,6 +95,13 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
+        sp_under: space_underscore {
+            compatible = "zmk,behavior-mod-morph";
+            label = "space_underscore";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE>, <&kp UNDER>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -112,7 +119,7 @@
           &kp TAB   &kp B  &kp SLASH         &kp P        &kp O      &kp W              &sl 4            &kp V   &kp D   &kp L   &kp J   &kp BSPC
  &mt LCTRL ESCAPE   &kp A      &kp U         &kp I        &kp E  &kp COMMA              &kp C            &kp T   &kp S   &kp R   &kp N      &kp M
      &kp LEFT_WIN   &kp Z      &kp Y         &kp X      &kp DOT  &kp COLON              &kp K            &kp Q   &kp G   &kp H   &kp F  &kp ENTER
-                                      &kp LEFT_ALT  &lt 1 MINUS             &kp SPACE          &kp RIGHT_SHIFT   &mo 2
+                                      &kp LEFT_ALT  &lt 1 MINUS             &sp_under          &kp RIGHT_SHIFT   &mo 2
             >;
         };
 
