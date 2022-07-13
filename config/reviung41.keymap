@@ -11,63 +11,14 @@
 
 / {
     macros {
-        e_acute: e_acute {
-            compatible = "zmk,behavior-macro";
-            label = "e_acute";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings = <&kp SINGLE_QUOTE &kp E>;
-        };
-        e_grave: e_grave {
-            compatible = "zmk,behavior-macro";
-            label = "e_grave";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp E>;
-        };
-        a_grave: a_grave {
-            compatible = "zmk,behavior-macro";
-            label = "a_grave";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp A>;
-        };
-        quote: quote {
-            compatible = "zmk,behavior-macro";
-            label = "quote";
-            #binding-cells = <0>;
-            bindings = <&kp SINGLE_QUOTE &kp SPACE>;
-        };
-        u_grave: u_grave {
-            compatible = "zmk,behavior-macro";
-            label = "u_grave";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE &kp U>;
-        };
-        co_q: comma_intterrogation {
-            compatible = "zmk,behavior-mod-morph";
-            label = "comma/questionmark";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA &kp QMARK>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        dot_col: dot_colon {
-            compatible = "zmk,behavior-mod-morph";
-            label = "dot/colon";
-            #binding-cells = <0>;
-            bindings = <&kp DOT &kp COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        c_cedilla: c_cedilla {
-            compatible = "zmk,behavior-macro";
-            label = "c_cedilla";
-            #binding-cells = <0>;
-            bindings = <&kp SINGLE_QUOTE &kp C>;
-        };
         i_trema: i_trema {
             compatible = "zmk,behavior-macro";
             label = "i_trema";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp DOUBLE_QUOTES &kp I>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT &kp I>,
+                <&macro_release>;
         };
     };
 
@@ -83,10 +34,10 @@
             //                         | ALT | LWR | SPC | RSE  | ALT |
 
             bindings = <
-          &kp TAB   &kp B   &e_acute     &kp P     &kp O  &kp W              &sl 4   &kp V            &kp D   &kp L   &kp J   &kp BSPC
- &mt LCTRL ESCAPE   &kp A   &kp U     &kp I     &kp E      &co_q              &kp C   &kp T            &kp S   &kp R   &kp N      &kp M
-     &kp LEFT_WIN   &kp Z   &kp Y     &kp X  &dot_col     &quote              &kp K   &kp Q            &kp G   &kp H   &kp F  &kp ENTER
-                                   &kp RALT     &mo 1             &kp SPACE           &mo 2  &kp RIGHT_SHIFT
+          &kp TAB   &kp B  &kp SLASH     &kp P    &kp O      &kp W              &sl 4            &kp V   &kp D   &kp L   &kp J   &kp BSPC
+ &mt LCTRL ESCAPE   &kp A      &kp U     &kp I    &kp E  &kp COMMA              &kp C            &kp T   &kp S   &kp R   &kp N      &kp M
+     &kp LEFT_WIN   &kp Z      &kp Y     &kp X  &kp DOT  &kp COLON              &kp K            &kp Q   &kp G   &kp H   &kp F  &kp ENTER
+                                      &kp RALT    &mo 1             &kp SPACE          &kp RIGHT_SHIFT   &mo 2
             >;
         };
 
@@ -99,9 +50,9 @@
 
             bindings = <
  &kp SLASH   &kp EXCL       &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                  &kp CARET   &kp AMPS     &kp N8   &kp LPAR   &kp RPAR        &kp DEL
- &trans  &kp MINUS  &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE                   &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp GRAVE      &kp TILDE
- &trans    &kp ESC     &kp LGUI  &kp LALT  &kp CLCK    &kp DQT                   &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &kp PSCRN  &mt RSHFT RET
-                                   &trans    &trans             &kp UNDERSCORE                 &mo 3     &trans
+    &trans  &kp MINUS  &kp KP_PLUS  &kp LBRC  &kp RBRC   &kp PIPE                   &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp GRAVE      &kp TILDE
+    &trans    &kp ESC     &kp LGUI  &kp LALT  &kp CLCK    &kp DQT                   &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &kp PSCRN  &mt RSHFT RET
+                                      &trans    &trans             &kp UNDERSCORE                 &mo 3     &trans
             >;
         };
 
@@ -137,10 +88,10 @@
 
         ACCENTS {
             bindings = <
- &trans    &trans  &e_acute  &e_acute    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
- &trans  &a_grave  &u_grave    &i_trema  &e_grave  &trans          &c_cedilla  &trans  &trans  &trans  &trans  &trans
- &trans    &trans    &trans    &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                               &trans    &trans          &trans          &trans  &trans
+ &trans           &trans  &kp SINGLE_QUOTE  &kp SINGLE_QUOTE  &trans  &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &kp NON_US_BSLH   &kp NON_US_HASH          &i_trema  &trans  &trans          &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
+ &trans           &trans            &trans            &trans  &trans  &trans                     &trans  &trans  &trans  &trans  &trans  &trans
+                                                      &trans  &trans          &trans                     &trans  &trans
             >;
         };
     };
