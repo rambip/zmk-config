@@ -1,0 +1,4 @@
+- démonter touche a et i pour voir si faux contacts
+- faire la liste de tous les symboles ascii (pipe, grave ...)
+- voir si un autre moyen de mettre la ponctuation de base (shift et point/virgules pas beaucoup utilisés)
+- renommer le repo
