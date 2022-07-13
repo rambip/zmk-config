@@ -95,6 +95,51 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
+        lt_symb: lt_symb {
+            compatible = "zmk,behavior-macro";
+            label = "lt";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp COMMA>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
+        gt_symb: gt_symb {
+            compatible = "zmk,behavior-macro";
+            label = "gt";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp DOT>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
+        pipe: pipe {
+            compatible = "zmk,behavior-macro";
+            label = "pipe";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp TILDE>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
     };
 
     keymap {
@@ -124,10 +169,10 @@
             //                       |     |     | RET | ADJ |     |
 
             bindings = <
- &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &caret   &kp AMPS   &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
-    &trans  &l_bracket  &r_bracket  &l_brace  &r_brace   &kp PIPE                  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp GRAVE      &kp TILDE
-    &trans     &kp ESC    &kp LGUI  &kp LALT  &kp CLCK    &kp DQT                  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &kp PSCRN  &mt RSHFT RET
-                                      &trans    &trans             &kp UNDERSCORE                &mo 3      &mo 3
+ &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
+    &trans  &l_bracket  &r_bracket  &l_brace  &r_brace   &kp PIPE                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &kp GRAVE          &pipe
+    &trans     &kp ESC    &kp LGUI  &kp LALT  &kp CLCK    &kp DQT                  &kp HOME   &kp END  &lt_symb   &gt_symb  &kp TILDE  &mt RSHFT RET
+                                      &trans    &trans             &kp UNDERSCORE               &mo 3     &mo 3
             >;
         };
 
@@ -139,10 +184,10 @@
             //                       |     | ADJ | BKSP |    |     |
 
             bindings = <
- &trans     &kp N1     &kp N2      &kp N3      &kp N4    &kp N5            &kp N6  &kp N7  &kp N8   &kp N9   &kp N0  &kp DEL
- &trans  &kp MINUS  &kp EQUAL  &l_bracket  &r_bracket  &kp BSLH            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6
- &trans    &kp ESC   &kp LGUI    &kp RALT    &kp CLCK   &kp DQT            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-                                   &trans       &mo 3            &kp BSPC          &trans  &trans
+ &trans    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5            &kp N6  &kp N7  &kp N8   &kp N9   &kp N0  &kp DEL
+ &trans  &lt_symb  &gt_symb  &kp EQUAL  &kp PLUS  &kp BSLH            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6
+ &trans   &kp ESC  &kp LGUI   &kp RALT  &kp CLCK   &kp DQT            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+                                &trans     &mo 3            &kp BSPC          &trans  &trans
             >;
         };
 
