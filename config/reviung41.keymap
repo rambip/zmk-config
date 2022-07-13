@@ -156,6 +156,14 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
+        a_hat: a_hat {
+            compatible = "zmk,behavior-macro";
+            label = "a_hat";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp A>;
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
     };
 
     keymap {
@@ -224,7 +232,7 @@
 
         ACCENTS {
             bindings = <
- &trans           &trans  &kp SINGLE_QUOTE  &i_trema  &o_hat             &trans          &trans  &trans  &trans  &trans  &trans  &trans
+ &trans           &a_hat  &kp SINGLE_QUOTE  &i_trema  &o_hat             &trans          &trans  &trans  &trans  &trans  &trans  &trans
  &trans  &kp NON_US_HASH         &kp SLASH    &i_hat  &e_hat  &kp RIGHT_BRACKET          &trans  &trans  &trans  &trans  &trans  &trans
  &trans           &trans            &trans    &trans  &kp LT          &kp CARET          &trans  &trans  &trans  &trans  &trans  &trans
                                               &trans  &trans                     &trans          &trans  &trans
