@@ -154,10 +154,10 @@
             //                         | ALT | LWR | SPC | RSE  | ALT |
 
             bindings = <
-          &kp TAB   &kp B  &kp SLASH         &kp P        &kp O      &kp W              &sl 4            &kp V   &kp D   &kp L   &kp J   &kp BSPC
- &mt LCTRL ESCAPE   &kp A      &kp U         &kp I        &kp E  &kp COMMA              &kp C            &kp T   &kp S   &kp R   &kp N      &kp M
-     &kp LEFT_WIN   &kp Z      &kp Y         &kp X      &kp DOT  &kp COLON              &kp K            &kp Q   &kp G   &kp H   &kp F  &kp ENTER
-                                      &kp LEFT_ALT  &lt 1 MINUS             &kp SPACE          &kp RIGHT_SHIFT   &mo 2
+          &kp TAB   &kp B  &kp SLASH         &kp P        &kp O          &kp W              &sl 4            &kp V   &kp D   &kp L   &kp J   &kp BSPC
+ &mt LCTRL ESCAPE   &kp A      &kp U         &kp I        &kp E      &kp COMMA              &kp C            &kp T   &kp S   &kp R   &kp N      &kp M
+     &kp LEFT_WIN   &kp Z      &kp Y         &kp X      &kp DOT  &kp SEMICOLON              &kp K            &kp Q   &kp G   &kp H   &kp F  &kp ENTER
+                                      &kp LEFT_ALT  &lt 1 MINUS                 &kp SPACE          &kp RIGHT_SHIFT   &mo 2
             >;
         };
 
@@ -169,10 +169,10 @@
             //                       |     |     | RET | ADJ |     |
 
             bindings = <
- &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
-    &trans  &l_bracket  &r_bracket  &l_brace  &r_brace   &kp PIPE                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &kp GRAVE          &pipe
-    &trans     &kp ESC    &kp LGUI  &kp LALT  &kp CLCK    &kp DQT                  &kp HOME   &kp END  &lt_symb   &gt_symb  &kp TILDE  &mt RSHFT RET
-                                      &trans    &trans             &kp UNDERSCORE               &mo 3     &mo 3
+ &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR        &kp PRCNT                    &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
+  &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace         &kp PIPE                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &kp GRAVE          &pipe
+    &trans      &trans      &trans    &trans    &trans  &kp PRINTSCREEN                  &kp HOME   &kp END  &lt_symb   &gt_symb  &kp TILDE  &mt RSHFT RET
+                                      &trans    &trans                   &kp UNDERSCORE               &mo 3     &mo 3
             >;
         };
 
@@ -184,10 +184,10 @@
             //                       |     | ADJ | BKSP |    |     |
 
             bindings = <
- &trans    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5            &kp N6  &kp N7  &kp N8   &kp N9   &kp N0  &kp DEL
- &trans  &lt_symb  &gt_symb  &kp EQUAL  &kp PLUS  &kp BSLH            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6
- &trans   &kp ESC  &kp LGUI   &kp RALT  &kp CLCK   &kp DQT            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-                                &trans     &mo 3            &kp BSPC          &trans  &trans
+ &trans    &kp N1    &kp N2     &kp N3    &kp N4           &kp N5            &kp N6  &kp N7  &kp N8   &kp N9   &kp N0  &kp DEL
+ &trans  &lt_symb  &gt_symb  &kp EQUAL  &kp PLUS         &kp BSLH            &kp F1  &kp F2  &kp F3   &kp F4   &kp F5   &kp F6
+ &trans    &trans    &trans     &trans    &trans  &kp PRINTSCREEN            &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+                                &trans     &mo 3                   &kp BSPC          &trans  &trans
             >;
         };
 
