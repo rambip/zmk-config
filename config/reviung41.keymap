@@ -208,10 +208,10 @@
             //                       |     | ADJ | BKSP |    |     |
 
             bindings = <
-  &trans    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5            &kp N6  &kp N7  &kp N8  &kp N9   &kp N0          &kp DEL
-  &trans  &lt_symb  &gt_symb  &kp EQUAL  &kp PLUS  &kp BSLH            &kp F1  &kp F2  &kp F3  &kp F4   &kp F5  &kp PRINTSCREEN
- &kp F12    &kp F1    &kp F2     &kp F3    &kp F4    &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10           &trans
-                                 &trans     &mo 3            &kp BSPC          &trans  &trans
+  &trans    &kp N1    &kp N2     &kp N3    &kp N4    &kp N5            &kp N6        &kp N7  &kp N8        &kp N9        &kp N0          &kp DEL
+  &trans  &lt_symb  &gt_symb  &kp EQUAL  &kp PLUS  &kp BSLH            &kp N0  &kp NUMBER_0  &kp N0  &kp NUMBER_0  &kp NUMBER_0  &kp PRINTSCREEN
+ &kp F12    &kp F1    &kp F2     &kp F3    &kp F4    &kp F5            &kp F6        &kp F7  &kp F8        &kp F9       &kp F10           &trans
+                                 &trans     &mo 3            &kp BSPC                &trans  &trans
             >;
         };
 
