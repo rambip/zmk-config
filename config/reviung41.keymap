@@ -179,6 +179,21 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
+        backtick: backtick {
+            compatible = "zmk,behavior-macro";
+            label = "backtick";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp LEFT_BRACKET &kp SPACE>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
     };
 
     keymap {
@@ -247,10 +262,10 @@
 
         ACCENTS {
             bindings = <
- &trans           &a_hat  &kp SINGLE_QUOTE  &i_trema        &o_hat         &trans          &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
- &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &i_hat        &e_hat  &kp SEMICOLON                     &trans  &trans  &trans  &trans  &trans  &trans
- &trans           &trans            &trans    &trans  &kp NUMBER_6      &kp CARET                     &trans  &trans  &trans  &trans  &trans  &trans
-                                              &trans        &trans                 &trans                     &trans  &trans
+ &trans           &a_hat  &kp SINGLE_QUOTE  &i_trema        &o_hat         &trans             &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
+ &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &i_hat        &e_hat  &kp SEMICOLON                        &trans  &trans  &trans  &trans  &trans  &trans
+ &trans           &trans            &trans    &trans  &kp NUMBER_6      &kp CARET                        &trans  &trans  &trans  &trans  &trans  &trans
+                                              &trans        &trans                 &backtick                     &trans  &trans
             >;
         };
 
