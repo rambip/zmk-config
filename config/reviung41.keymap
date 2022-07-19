@@ -224,7 +224,7 @@
 
             bindings = <
  &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
-  &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace     &trans                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &kp TILDE          &pipe
+  &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace      &pipe                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &kp COLON      &kp TILDE
     &trans   &kp EQUAL   &kp EQUAL  &kp PLUS   &kp DOT   &kp HOME                   &kp END    &tilde  &lt_symb   &gt_symb  &kp GRAVE  &mt RSHFT RET
                                       &trans    &trans             &kp UNDERSCORE               &mo 3     &mo 3
             >;
