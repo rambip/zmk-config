@@ -274,7 +274,7 @@
     &kp TAB        &trans        &trans         &kp W         &kp E        &trans              &trans             &trans        &kp UP     &trans  &trans           &trans
  &kp ESCAPE        &trans         &kp A         &kp S         &kp D         &kp F              &trans           &kp LEFT      &kp DOWN  &kp RIGHT  &trans  &kp PRINTSCREEN
      &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5          &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP     &trans  &trans           &trans
-                                               &tog 5        &tog 5                &trans                     &kp RSHIFT        &tog 5
+                                               &tog 5        &tog 5                &trans                     &kp LSHIFT        &tog 5
             >;
         };
     };
