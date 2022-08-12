@@ -226,7 +226,7 @@
                 <&kp RIGHT_ALT>,
                 <&macro_tap>,
                 <&kp LEFT_BRACKET &kp LEFT_BRACKET>,
-                <&macro_press>,
+                <&macro_release>,
                 <&kp RIGHT_ALT>;
 
             tap-ms = <30>;
