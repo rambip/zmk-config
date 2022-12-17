@@ -164,6 +164,14 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
+        u_hat: u_hat {
+            compatible = "zmk,behavior-macro";
+            label = "u_hat";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp U>;
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
         tilde: tilde {
             compatible = "zmk,behavior-macro";
             label = "tilde";
@@ -262,7 +270,7 @@
 
             bindings = <
  &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                    &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR        &kp DEL
-  &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace      &euro                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
+  &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace      &kp SEMICOLON                  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
  &kp COLON   &kp EQUAL   &kp EQUAL  &kp PLUS   &kp DOT   &kp HOME                   &kp END    &tilde  &lt_symb   &gt_symb  &kp GRAVE  &mt RSHFT RET
                                       &trans    &trans             &kp UNDERSCORE               &mo 3     &mo 3
             >;
@@ -300,8 +308,8 @@
 
         ACCENTS {
             bindings = <
- &backtick_double           &a_hat  &kp SINGLE_QUOTE  &i_trema    &o_hat         &trans             &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
-           &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &i_hat    &e_hat  &kp SEMICOLON                        &trans  &trans  &trans  &trans  &trans  &trans
+ &backtick_double           &a_hat  &u_hat            &i_hat    &e_hat         &o_hat             &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
+           &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &i    &kp SINGLE_QUOTE  &e_hat                        &trans  &trans  &trans  &trans  &trans  &trans
            &trans           &trans            &trans  &i_trema  &e_trema      &kp CARET                        &trans  &trans  &trans  &trans  &trans  &trans
                                                         &trans    &trans                 &backtick                     &trans  &trans
             >;
