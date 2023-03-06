@@ -308,10 +308,10 @@
 
         ACCENTS {
             bindings = <
- &backtick_double           &a_hat  &u_hat            &i_hat    &e_hat         &o_hat             &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
+ &backtick_double           &a_hat  &u_hat            &i_hat    &e_hat         &o_hat             &kp m  &trans  &trans  &trans  &trans  &trans
            &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &kp I    &kp SINGLE_QUOTE  &kp SEMI                        &trans  &trans  &trans  &trans  &trans  &trans
            &trans           &trans            &trans  &i_trema  &e_trema      &kp CARET                        &trans  &trans  &trans  &trans  &trans  &trans
-                                                        &trans    &trans                 &backtick                     &trans  &trans
+                                                        &trans    &trans                 &kp tilde                     &trans  &trans
             >;
         };
 
