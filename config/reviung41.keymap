@@ -276,7 +276,7 @@
 
                 // <caps>      [       ]            {          }        ;
                 &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace  &kp SEMI
-                // <-       \/          /\        ->           |         \
+                // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
 
                 // :        =       =       "       <--
@@ -298,7 +298,7 @@
 
                 //          =        -          +           .       ,
                 &trans  &kp EQUAL  &kp MINUS  &kp PLUS  &kp DOT  &kp COMMA
-                // <-       \/          /\        ->           0        <print> 
+                // <-       \/          /\      ->           0        <print> 
                 &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp NUMBER_0  &kp PRINTSCREEN
 
                 &kp F12   &kp F1   &kp F2    &kp F3   &kp F4     &kp F5
