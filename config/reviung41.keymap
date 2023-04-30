@@ -308,7 +308,7 @@
                 &trans    &mo 3           &tog 5         &trans  &trans
                 >;
         };
-        ADJUST {
+        adjust_layer {
             bindings = <
                 &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF   &none  &rgb_ug RGB_TOG
                 // bluetooth profile selection
