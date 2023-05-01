@@ -169,9 +169,9 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
-        euro: deg {
+        deg: deg {
             compatible = "zmk,behavior-macro";
-            label = "euro";
+            label = "deg";
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
