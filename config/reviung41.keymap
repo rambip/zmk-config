@@ -264,8 +264,8 @@
                 // -->        ~       <           >         /       ???
                 &kp END    &tilde  &lt_symb   &gt_symb  &kp GRAVE  &mt RSHFT RET
 
-                //                    _               <two thumbs = adjust layer>
-                &trans    &trans   &kp UNDERSCORE       &sl ADJUST     &trans
+                //                    
+                &trans    &trans   &kp UNDERSCORE       &trans     &trans
                 >;
         };
         
@@ -287,7 +287,7 @@
                 &kp F6    &kp F7   &kp F8    &kp F9   &kp F10    &kp PRINTSCREEN
 
                 //                      <game mode>  
-                &trans    &mo ADJUST       &tog GAMES        &trans  &trans
+                &trans    &trans       &tog GAMES        &trans  &trans
                 >;
         };
 
