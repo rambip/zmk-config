@@ -11,14 +11,6 @@
 
 / {
     macros {
-        i_trema: i_trema {
-            compatible = "zmk,behavior-macro";
-            label = "i_trema";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACE &kp I>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-        };
         r_bracket: r_bracket {
             compatible = "zmk,behavior-macro";
             label = "r_bracket";
@@ -79,14 +71,6 @@
             wait-ms = <30>;
             tap-ms = <30>;
         };
-        e_hat: e_hat {
-            compatible = "zmk,behavior-macro";
-            label = "e_hat";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp E>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
         caret: caret {
             compatible = "zmk,behavior-macro";
             label = "caret";
@@ -140,38 +124,6 @@
             tap-ms = <30>;
             wait-ms = <30>;
         };
-        i_hat: i_hat {
-            compatible = "zmk,behavior-macro";
-            label = "i_hat";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp I>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
-        o_hat: o_hat {
-            compatible = "zmk,behavior-macro";
-            label = "o_hat";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp O>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
-        a_hat: a_hat {
-            compatible = "zmk,behavior-macro";
-            label = "a_hat";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp A>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
-        u_hat: u_hat {
-            compatible = "zmk,behavior-macro";
-            label = "u_hat";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp U>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
         tilde: tilde {
             compatible = "zmk,behavior-macro";
             label = "tilde";
@@ -202,14 +154,6 @@
             tap-ms = <30>;
             wait-ms = <60>;
         };
-        e_trema: e_trema {
-            compatible = "zmk,behavior-macro";
-            label = "e_trema";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACE &kp E>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
         euro: euro {
             compatible = "zmk,behavior-macro";
             label = "euro";
@@ -219,6 +163,21 @@
                 <&kp RIGHT_ALT>,
                 <&macro_tap>,
                 <&kp E>,
+                <&macro_release>,
+                <&kp RIGHT_ALT>;
+
+            tap-ms = <30>;
+            wait-ms = <30>;
+        };
+        euro: deg {
+            compatible = "zmk,behavior-macro";
+            label = "euro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RIGHT_ALT>,
+                <&macro_tap>,
+                <&kp M>,
                 <&macro_release>,
                 <&kp RIGHT_ALT>;
 
@@ -278,7 +237,6 @@
                 &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace  &kp SEMI
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
-
                 //                         =          +        "          <--
                 &trans      &trans      &kp EQUAL  &kp PLUS   &kp GT   &kp HOME
                 // -->        ~       <           >         /       ???
@@ -287,7 +245,7 @@
                 //                    _               <two thumbs = adjust layer>
                 &trans    &trans   &kp UNDERSCORE       &mo 3     &mo 3
                 >;
-        };
+        
 
         NUM {
             bindings = < 
@@ -306,7 +264,7 @@
                 &kp F6    &kp F7   &kp F8    &kp F9   &kp F10    &kp PRINTSCREEN
 
                 //                      <game mode>  
-                &kp F11    &kp 12         &tog 5        &trans  &trans
+                &kp F11    &kp F12         &tog 5        &trans  &trans
                 >;
         };
         adjust_layer {
@@ -323,30 +281,29 @@
                 &none   &none   &none   &none   &none   &none   
                 &sys_reset   &none   &none   &none   &none   &bootloader
 
-                //              <game mode>
-                &trans   &trans   &tog 3   &bootloader   &trans
+                //              
+                &trans   &trans   &trans   &trans   &trans
                 >;
         };
 
         ACCENTS {
             bindings = <
-                // first layer is for hats 
-                &trans &kp LBKT  &kp LBKT  &kp LBKT  &kp LBKT  &kp LBKT 
-                // `
-                &backtick_double    &trans   &trans   &trans   &trans   &trans
+                //              €              °
+                &trans &trans  &euro  &trans  &deg  &trans 
+                // `               diaresis    hat
+                &backtick_double    &LBRC     &LBKT   &trans   &trans   &trans
 
                 // second layer is for grave accents
-                &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &kp I    &kp SINGLE_QUOTE  &kp SEMI
-                // ç
+                &trans  &kp NON_US_HASH   &kp NON_US_BSLH   &kp I  &kp SINGLE_QUOTE  &kp SEMI
+                //     ç
                 &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
 
-                // third layer is for trema (ï)
-                &trans   &kp LBRC  &kp LBRC  &kp LBRC  &kp LBRC  &kp LBRC
                 // empty
-                &trans   &trans   &trans   &trans     &trans       &trans
+                &trans   &trans   &trans  &trans  &trans  &trans
+                &trans   &trans   &trans  &trans  &trans  &trans
 
-                //                         for accentuated letters
-                &trans   &trans   &backtick   &kp RIGHT_SHIFT   &trans
+                //
+                &trans   &trans   &backtick   &trans   &trans
                 >;
         };
 
