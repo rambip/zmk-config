@@ -280,7 +280,7 @@
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
 
                 //                         =          +        "          <--
-                &kp trans   &kp TRANS   &kp EQUAL  &kp PLUS   &kp GT   &kp HOME
+                &trans      &trans      &kp EQUAL  &kp PLUS   &kp GT   &kp HOME
                 // -->        ~       <           >         /       ???
                 &kp END    &tilde  &lt_symb   &gt_symb  &kp GRAVE  &mt RSHFT RET
 
