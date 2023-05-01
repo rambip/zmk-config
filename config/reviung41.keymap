@@ -12,9 +12,9 @@
 #define DEFAULT 0
 #define SYMBOLS 1
 #define NUMS 2
-#define ADJUST 3
-#define ACCENT 4
-#define GAMES 5
+#define ACCENT 3
+#define GAMES 4
+#define ADJUST 5
 
 / {
     macros {
@@ -248,7 +248,7 @@
                 >;
         };
 
-        SYMBOLS {
+        symbol_layer {
             bindings = <
                 //  /          !            @           #       $       %
                 &kp SLASH    &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
@@ -270,7 +270,7 @@
         };
         
 
-        NUM {
+        num_layer {
             bindings = < 
                 //          1          2       3        4       5
                 &trans     &kp N1   &kp N2   &kp N3   &kp N4   &kp N5
@@ -292,27 +292,7 @@
         };
 
 
-        adjust_layer {
-            bindings = <
-                &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF   &none  &rgb_ug RGB_TOG
-                // bluetooth profile selection
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_CLR
-
-                //
-                &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR &none
-                &none   &none   &none   &none   &sys_reset   &none   &none
-
-                //
-                &none   &none   &none   &none   &none   &none   
-                &sys_reset   &none   &none   &none   &none   &bootloader
-
-                //  to stay on this layer 
-                &trans   &trans   &trans   &mo    &trans
-                >;
-        };
-
-
-        ACCENTS {
+        accent_layer {
             bindings = <
                 //              €      µ       °
                 &trans &trans  &euro   &mu    &deg  &trans 
@@ -320,7 +300,7 @@
                 &backtick_double  &trans &kp LBRC   &kp LBKT   &trans   &trans   
 
                 // second layer is for grave accents
-                &trans  &kp 42   &kp 45   &kp I  &kp 40  &kp SEMI
+                &trans  &kp NON_US_HASH   &kp NON_US_BSLH   &kp I  &kp SQT  &kp SEMI
                 //     ç
                 &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
 
@@ -335,7 +315,7 @@
         };
 
 
-        GAMES {
+        gaming_layer {
             bindings = <
                 //
                 &kp   TAB   &trans   &trans   &kp W    &kp E    &trans
@@ -354,6 +334,26 @@
 
                 // <disable>   <disable>           <maj>       <disable>
                 &tog GAMES    &tog GAMES  &trans   &kp LSHIFT   &tog GAMES
+                >;
+        };
+
+
+        adjust_layer {
+            bindings = <
+                &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF   &none  &rgb_ug RGB_TOG
+                // bluetooth profile selection
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_CLR
+
+                //
+                &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR &none &none
+                &none   &none   &none   &none   &sys_reset   &none   
+
+                //
+                &none   &none   &none   &none   &none   &none   
+                &sys_reset   &none   &none   &none   &none   &bootloader
+
+                //  
+                &none   &none   &none   &none    &none
                 >;
         };
     };
