@@ -265,7 +265,7 @@
                 &kp END    &tilde  &lt_symb   &gt_symb  &kp GRAVE  &mt RSHFT RET
 
                 //                    _               <two thumbs = adjust layer>
-                &trans    &trans   &kp UNDERSCORE       &mo ADJUST     &trans
+                &trans    &trans   &kp UNDERSCORE       &sl ADJUST     &trans
                 >;
         };
         
@@ -346,7 +346,7 @@
 
                 //
                 &rgb_ug RGB_BRD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_EFR &none &none
-                &none   &kb T   &none   &none   &sys_reset   &none   
+                &none   &none   &none   &none   &sys_reset   &none   
 
                 //
                 &none   &none   &none   &none   &none   &none   
