@@ -291,15 +291,16 @@
                 //              €              °
                 &trans &trans  &euro  &trans  &deg  &trans 
                 // `               diaresis    hat
-                &backtick_double    &LBRC     &LBKT   &trans   &trans   &trans
+                &backtick_double  &kp LBRC   &kp LBKT   &trans   &trans   &trans
 
                 // second layer is for grave accents
                 &trans  &kp NON_US_HASH   &kp NON_US_BSLH   &kp I  &kp SINGLE_QUOTE  &kp SEMI
                 //     ç
                 &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
 
+                //                                   ?
+                &trans   &trans   &trans  &trans  &kp CARET  &trans
                 // empty
-                &trans   &trans   &trans  &trans  &trans  &trans
                 &trans   &trans   &trans  &trans  &trans  &trans
 
                 //
