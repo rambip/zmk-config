@@ -262,8 +262,8 @@
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
-                // <alt>      - -> <symbol layer>    <space>       : -> shift>      <numeric layer> 
-                &kp LEFT_ALT   &lt 1 MINUS          &kp SPACE   &mt RIGHT_SHIFT COLON   &mo 2
+                // <alt>    "-" -> <symbol layer>  <space>      : -> shift>        <nums> 
+                &kp LEFT_ALT   &lt 1 MINUS        &kp SPACE   &mt RIGHT_SHIFT COLON  &mo 2
                 >;
         };
 
@@ -330,23 +330,23 @@
 
         ACCENTS {
             bindings = <
-                //
-                &backtick_double     &a_hat   &u_hat   &i_hat   &e_hat   &o_hat
-                //
-                &kp RIGHT_BRACKET    &trans   &trans   &trans   &trans   &trans
+                // first layer is for hats 
+                &trans &kp LBKT  &kp LBKT  &kp LBKT  &kp LBKT  &kp LBKT 
+                // `
+                &backtick_double    &trans   &trans   &trans   &trans   &trans
 
-                //
+                // second layer is for grave accents
                 &trans  &kp NON_US_HASH   &kp NON_US_BSLH    &kp I    &kp SINGLE_QUOTE  &kp SEMI
-                //
-                &trans  &trans  &trans  &trans  &trans  &trans
+                // ç
+                &kp RIGHT_BRACKET  &trans  &trans  &trans  &trans  &trans
 
-                //
-                &trans   &trans   &trans   &i_trema   &e_trema   &kp   CARET
-                //
+                // third layer is for trema (ï)
+                &trans   &kp LBRC  &kp LBRC  &kp LBRC  &kp LBRC  &kp LBRC
+                // empty
                 &trans   &trans   &trans   &trans     &trans       &trans
 
-                //
-                &trans   &trans   &backtick   &trans   &trans
+                //                         for accentuated letters
+                &trans   &trans   &backtick   &kp RIGHT_SHIFT   &trans
                 >;
         };
 
