@@ -245,6 +245,7 @@
                 //                    _               <two thumbs = adjust layer>
                 &trans    &trans   &kp UNDERSCORE       &mo 3     &mo 3
                 >;
+        };
         
 
         NUM {
@@ -267,6 +268,8 @@
                 &kp F11    &kp F12         &tog 5        &trans  &trans
                 >;
         };
+
+
         adjust_layer {
             bindings = <
                 &rgb_ug RGB_BRI  &rgb_ug RGB_SAI  &rgb_ug RGB_HUI  &rgb_ug RGB_EFF   &none  &rgb_ug RGB_TOG
@@ -285,6 +288,7 @@
                 &trans   &trans   &trans   &trans   &trans
                 >;
         };
+
 
         ACCENTS {
             bindings = <
@@ -307,6 +311,7 @@
                 &trans   &trans   &backtick   &trans   &trans
                 >;
         };
+
 
         GAMES {
             bindings = <
