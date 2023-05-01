@@ -243,8 +243,8 @@
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
-                // <alt>    "-" -> <symbol>      <space>   : -> shift>            <nums> 
-                &kp LALT   &lt SYMBOLS MINUS  &kp SPACE   &mt RIGHT_SHIFT COLON  &mo NUMS
+                // <alt>    "-" -> <symbol>      <space>          shift>           <nums> 
+                &kp LALT   &lt SYMBOLS MINUS  &lt ADJUST SPACE   &kp RIGHT_SHIFT  &mo NUMS
                 >;
         };
 
@@ -255,8 +255,8 @@
                 // ^      &          *          (          )       <backspace>
                 &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR     &kp DEL
 
-                // <caps>      [       ]            {          }        ;
-                &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace  &kp SEMI
+                // <caps>      [       ]            {          }        :
+                &kp CAPS  &l_bracket  &r_bracket  &l_brace  &r_brace  &kp COLON
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT      &pipe      &kp TILDE
                 //                         =          +        "          <--
