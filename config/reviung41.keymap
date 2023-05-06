@@ -19,13 +19,13 @@
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
-#define C(hidcode) ((7 << 16) | hidcode)
+#define KC(hidcode) ((7 << 16) | hidcode)
 
 // decimal HID combined with (right)-alt 
-#define AC(hidcode) APPLY_MODS(MOD_RALT, C(hidcode))
+#define AC(hidcode) APPLY_MODS(MOD_RALT, KC(hidcode))
 
 // decimal HID combined with (left)-shift 
-#define SC(hidcode) APPLY_MODS(MOD_LSFT, C(hidcode))
+#define SC(hidcode) APPLY_MODS(MOD_LSFT, KC(hidcode))
 
 
 / {
@@ -76,7 +76,7 @@
         default_layer {
             bindings = <
                 // <tab>     B         É         P       O       W
-                &kp TAB   &kp B   &kp C(53)   &kp P   &kp O   &kp W              
+                &kp TAB   &kp B   &kp KC(53)   &kp P   &kp O   &kp W              
                 // <accent>   V        D         L       J       <bsp>
                 &sl ACCENT  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
@@ -109,7 +109,7 @@
                 //                         =          +        "          <--
                 &trans      &trans      &kp EQUAL  &kp PLUS   &kp LS(DOT)   &kp HOME
                 // -->        ~       <             >             /       ???
-                &kp END  &AC(27)  &kp RA(COMMA)  &kp RA(DOT)  &kp C(41)  &trans
+                &kp END  &AC(27)  &kp RA(COMMA)  &kp RA(DOT)  &kp KC(41)  &trans
 
                 //                    
                 &trans    &trans   &kp UNDERSCORE       &trans     &trans
@@ -144,12 +144,12 @@
                 //              €               µ           °
                 &trans &trans  &kp RA(E)   &kp RA(M)    &kp RA(SEMI)  &trans 
                 // `                        diaresis       hat
-                &backtick_double  &trans &kp SC(26)   &kp C(26)   &trans   &trans   
+                &backtick_double  &trans &kp SC(26)   &kp KC(26)   &trans   &trans   
 
                 //         à           è          ` accent      ù          ;
-                &trans  &kp C(43)   &kp C(86)   &kp AC(26)  &kp C(40)  &kp SEMI
+                &trans  &kp KC(43)   &kp KC(86)   &kp AC(26)  &kp KC(40)  &kp SEMI
                 //     ç
-                &kp C(27)  &trans  &trans  &trans  &trans  &trans
+                &kp KC(27)  &trans  &trans  &trans  &trans  &trans
 
                 //                                   ?
                 &trans   &trans   &trans  &trans  &kp LS(N6)  &trans
