@@ -28,7 +28,7 @@
 #define K41 KEYPRESS_FROM_HID(0x35)
 #define K43 KEYPRESS_FROM_HID(0x31)
 #define K53 KEYPRESS_FROM_HID(0x38)
-#define K86 KEYPRESS_FROM_HID(0x32)
+#define K86 KEYPRESS_FROM_HID(0x64)
 
 
 / {
@@ -86,12 +86,12 @@
                 &kp C      &kp T   &kp S   &kp R   &kp N   &kp M
 
                 // <nums>      Z       Y       X       .          '
-                &tog NUMS   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
+                &kp SPACE   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
                 // <alt>         <symbol>      <space>          <shift>           <super> 
-                &kp LALT   &lt SYMBOLS COLON  &kp SPACE      &kp RIGHT_SHIFT  &kp LEFT_WIN
+                &kp LALT   &lt SYMBOLS COLON  &lt NUMS SPACE      &lt MINUS RIGHT_SHIFT  &kp LEFT_WIN
                 >;
         };
 
@@ -122,7 +122,7 @@
                 //          1          2       3        4       5
                 &trans     &kp N1   &kp N2   &kp N3   &kp N4   &kp N5
                 //  6       7        8        9        0      mute
-                &kp N6    &kp N7   &kp N8   &kp N9   &kp N0    &kp DELETE
+                &kp N6    &kp N7   &kp N8   &kp N9   &kp N0    &kp BACKSPACE
 
                 //                                          .       ,
                 &trans  &trans   &trans     &trans      &kp DOT  &kp COMMA
@@ -130,7 +130,7 @@
                 &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans &trans
 
                 //  
-                &tog NUMS &trans &trans &trans &trans &trans
+                &kp MINUS &trans &trans &trans &trans &trans
                 &trans    &trans &trans &trans &trans &trans
 
                 //
@@ -157,7 +157,7 @@
                 &trans   &trans   &trans  &trans  &trans  &trans
 
                 //
-                &trans   &trans   &kp MINUS    &trans   &trans
+                &trans   &trans   &trans    &trans   &trans
                 >;
         };
 
