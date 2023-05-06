@@ -19,13 +19,16 @@
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
-#define KC(hidcode) ((7 << 16) | hidcode)
+#define KEYPRESS_FROM_HID(hidcode) ((7 << 16) | hidcode)
 
-// decimal HID combined with (right)-alt 
-#define AC(hidcode) APPLY_MODS(MOD_RALT, KC(hidcode))
-
-// decimal HID combined with (left)-shift 
-#define SC(hidcode) APPLY_MODS(MOD_LSFT, KC(hidcode))
+// usb-hid scancodes from their usual keycode equivalent
+#define K26 KEYPRESS_FROM_HID(0x2f)
+#define K27 KEYPRESS_FROM_HID(0x30)
+#define K40 KEYPRESS_FROM_HID(0x34)
+#define K41 KEYPRESS_FROM_HID(0x35)
+#define K43 KEYPRESS_FROM_HID(0x31)
+#define K53 KEYPRESS_FROM_HID(0x38)
+#define K86 KEYPRESS_FROM_HID(0x32)
 
 
 / {
@@ -76,7 +79,7 @@
         default_layer {
             bindings = <
                 // <tab>     B         É         P       O       W
-                &kp TAB   &kp B   &kp KC(53)   &kp P   &kp O   &kp W              
+                &kp TAB   &kp B   &kp K53   &kp P   &kp O   &kp W              
                 // <accent>   V        D         L       J       <bsp>
                 &sl ACCENT  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
@@ -105,11 +108,11 @@
                 // <caps>      [        ]            {          }          :
                 &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N9)  &kp RA(N0)  &kp COLON
                 // <-       \/          /\        ->           |      <backslash>
-                &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp AC(41)  &kp SC(41)
+                &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
                 //                         =          +        "          <--
                 &trans      &trans      &kp EQUAL  &kp PLUS   &kp LS(DOT)   &kp HOME
                 // -->        ~       <             >             /       ???
-                &kp END  &kp AC(27)  &kp RA(COMMA)  &kp RA(DOT)  &kp KC(41)  &trans
+                &kp END  &kp LA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &trans
 
                 //                    
                 &trans    &trans   &kp UNDERSCORE       &trans     &trans
@@ -144,12 +147,12 @@
                 //              €               µ           °
                 &trans &trans  &kp RA(E)   &kp RA(M)    &kp RA(SEMI)  &trans 
                 // `                        diaresis       hat
-                &backtick_double  &trans &kp SC(26)   &kp KC(26)   &trans   &trans   
+                &backtick_double  &trans &kp LS(K26)   &kp LS(K26)   &trans   &trans   
 
-                //         à           è          ` accent      ù          ;
-                &trans  &kp KC(43)   &kp KC(86)   &kp AC(26)  &kp KC(40)  &kp SEMI
+                //         à         è       ` accent      ù          ;
+                &trans  &kp K43   &kp K40   &kp RA(K26)  &kp K86  &kp SEMI
                 //     ç
-                &kp KC(27)  &trans  &trans  &trans  &trans  &trans
+                &kp K27   &trans  &trans  &trans  &trans  &trans
 
                 //                                   ?
                 &trans   &trans   &trans  &trans  &kp LS(N6)  &trans
