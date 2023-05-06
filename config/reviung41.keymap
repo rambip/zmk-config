@@ -144,7 +144,7 @@
                 //              €               µ           °
                 &trans &trans  &kp RA(E)   &kp RA(M)    &kp RA(SEMI)  &trans 
                 // `                        diaresis       hat
-                &backtick_double  &trans &kp LS(K26)   &kp LS(K26)   &trans   &trans   
+                &backtick_double  &trans &kp LS(K26)   &kp K26   &trans   &trans   
 
                 //         à         ù       ` accent      é 
                 &trans  &kp K43   &kp K86   &kp RA(K26)  &kp K40  &trans
