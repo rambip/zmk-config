@@ -106,13 +106,13 @@
                 &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR     &kp DEL
 
                 // <caps>      [        ]            {          }          :
-                &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N9)  &kp RA(N0)  &kp COLON
+                &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &kp COLON
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
                 //                         =          +        "          <--
                 &trans      &trans      &kp EQUAL  &kp PLUS   &kp LS(DOT)   &kp HOME
                 // -->        ~       <             >             /       ???
-                &kp END  &kp LA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &trans
+                &kp END  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &trans
 
                 //                    
                 &trans    &trans   &kp UNDERSCORE       &trans     &trans
@@ -149,8 +149,8 @@
                 // `                        diaresis       hat
                 &backtick_double  &trans &kp LS(K26)   &kp LS(K26)   &trans   &trans   
 
-                //         à         è       ` accent      ù          ;
-                &trans  &kp K43   &kp K40   &kp RA(K26)  &kp K86  &kp SEMI
+                //         à         ù       ` accent      é          ;
+                &trans  &kp K43   &kp K86   &kp RA(K26)  &kp K40  &kp SEMI
                 //     ç
                 &kp K27   &trans  &trans  &trans  &trans  &trans
 
