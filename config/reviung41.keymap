@@ -91,7 +91,7 @@
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
                 // <alt>         <symbol>      <space>          <shift>           <super> 
-                &kp LALT   &lt SYMBOLS COLON  &lt NUMS SPACE      &lt MINUS RIGHT_SHIFT  &kp LEFT_WIN
+                &kp LALT   &lt SYMBOLS COLON  &lt NUMS SPACE  &mt RIGHT_SHIFT MINUS  &kp LEFT_WIN
                 >;
         };
 
