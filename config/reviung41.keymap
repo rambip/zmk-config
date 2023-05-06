@@ -109,7 +109,7 @@
                 //                         =          +        "          <--
                 &trans      &trans      &kp EQUAL  &kp PLUS   &kp LS(DOT)   &kp HOME
                 // -->        ~       <             >             /       ???
-                &kp END  &AC(27)  &kp RA(COMMA)  &kp RA(DOT)  &kp KC(41)  &trans
+                &kp END  &kp AC(27)  &kp RA(COMMA)  &kp RA(DOT)  &kp KC(41)  &trans
 
                 //                    
                 &trans    &trans   &kp UNDERSCORE       &trans     &trans
