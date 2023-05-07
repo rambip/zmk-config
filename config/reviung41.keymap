@@ -11,7 +11,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define SYMBOLS 1
+#define SYMB 1
 #define NUMS 2
 #define ACCENT 3
 #define GAMES 4
@@ -59,14 +59,23 @@
     };
 
     behaviors {
-        // modifier when hold, sticky layer when tapped
-        mo_tog: behavior_mo_tog {
+        // change layer when hold, sticky layer when tapped
+        mo_sticky: behavior_move_sticky {
             compatible = "zmk,behavior-hold-tap";
             label = "mo_tog";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&sl>;
+        };
+        // apply modifier when hold, sticky modifier when tapped
+        kp_sticky: behavior_key_sticky {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&sk>;
         };
     };
 
@@ -85,31 +94,31 @@
                 // C        T       S       R       N       M
                 &kp C      &kp T   &kp S   &kp R   &kp N   &kp M
 
-                // <nums>      Z       Y       X       .          '
-                &kp SPACE   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
+                // :          Z       Y       X       .          '
+                &kp COLON   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
-                // <alt>         <symbol>      <space>          <shift>           <super> 
-                &kp LALT   &lt SYMBOLS COLON  &lt NUMS SPACE  &mt RIGHT_SHIFT MINUS  &kp LEFT_WIN
+                // <alt>         <symbol>             <space>               <shift>           <super> 
+                &kp LALT   &mo_sticky SYMB SYMB    &lt NUMS SPACE  &kp_sticky RSHIFT RSHIFT  &kp LEFT_WIN
                 >;
         };
 
         symbol_layer {
             bindings = <
-                //                          @           #       $       %
-                &trans       &trans      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
+                //              !            @           #       $       %
+                &trans       &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
                 // ^      &          *          (          )       <backspace>
                 &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR     &kp DEL
 
-                // <caps>      [        ]            {          }          :
-                &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &kp COLON
+                // <caps>      [        ]            {          }           ; 
+                &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &kp SEMI
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
-                //                         =          +        "          <--
-                &trans      &trans      &kp EQUAL  &kp PLUS   &kp LS(DOT)   &kp HOME
-                // -->        ~           <              >           /
-                &kp END  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &trans
+                //                         =          +        -           ?
+                &trans   &trans      &kp EQUAL  &kp PLUS   &kp MINUS   &kp LS(N6)
+                // <--        ~           <              >           /      -->
+                &kp HOME  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp END
 
                 //                    
                 &trans    &trans       &kp UNDERSCORE       &mo FUNCTION     &trans
@@ -151,8 +160,8 @@
                 //     ç
                 &kp K27   &trans  &trans  &trans  &trans  &trans
 
-                //                           !       ?
-                &trans   &trans   &trans  &kp EXCL  &kp LS(N6)  &trans
+                //                           
+                &trans   &trans   &trans  &trans  &trans  &trans
                 // empty
                 &trans   &trans   &trans  &trans  &trans  &trans
 
