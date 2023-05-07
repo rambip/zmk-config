@@ -62,7 +62,7 @@
         // change layer when hold, sticky layer when tapped
         mo_sticky: behavior_move_sticky {
             compatible = "zmk,behavior-hold-tap";
-            label = "mo_tog";
+            label = "mo_sticky";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
@@ -71,7 +71,7 @@
         // apply modifier when hold, sticky modifier when tapped
         kp_sticky: behavior_key_sticky {
             compatible = "zmk,behavior-hold-tap";
-            label = "mo_tog";
+            label = "kp_sticky";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
