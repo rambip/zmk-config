@@ -179,7 +179,7 @@
                 &trans      &trans   &kp UP   &trans   &trans   &trans
 
                 //
-                &kp ESCAPE    &trans     &kp A      &kp S       &kp D    &kp F
+                &mt LCTRL ESCAPE    &trans     &kp A      &kp S       &kp D    &kp F
                 //
                 &trans        &kp LEFT   &kp DOWN   &kp RIGHT   &trans   &trans
 
