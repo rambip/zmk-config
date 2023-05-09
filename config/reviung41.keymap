@@ -115,8 +115,8 @@
                 &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &kp SEMI
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
-                //                         =          +        -           ?
-                &trans   &trans      &kp EQUAL  &kp PLUS   &kp MINUS   &kp LS(N6)
+                //         `                 =          +        -           ?
+                &trans  &backtick_double  &kp EQUAL  &kp PLUS   &kp MINUS   &kp LS(N6)
                 // <--        ~           <              >           /      -->
                 &kp HOME  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp END
 
@@ -130,13 +130,13 @@
             bindings = < 
                 //          1          2       3        4       5
                 &trans     &kp N1   &kp N2   &kp N3   &kp N4   &kp N5
-                //  6       7        8        9        0      mute
-                &kp N6    &kp N7   &kp N8   &kp N9   &kp N0    &kp BACKSPACE
+                //  6       7        8        9               mute
+                &kp N6    &kp N7   &kp N8   &kp N9   &trans    &kp BACKSPACE
 
                 //                                          .       ,
                 &trans  &trans   &trans     &trans      &kp DOT  &kp COMMA
-                // <-       \/          /\      ->       
-                &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans &trans
+                // <-       \/          /\      ->       0  
+                &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp N0 &trans
 
                 //  
                 &kp MINUS &trans &trans &trans &trans &trans
@@ -152,8 +152,8 @@
             bindings = <
                 //              €               µ           °
                 &trans &trans  &kp RA(E)   &kp RA(M)    &kp RA(SEMI)  &trans 
-                // `                        diaresis       hat
-                &backtick_double  &trans &kp LS(K26)   &kp K26   &trans   &trans   
+                // hat              diaresis    
+                &kp K26  &trans   &kp LS(K26)   &trans   &trans   &trans   
 
                 //         à         ù       ` accent      é 
                 &trans  &kp K43   &kp K86   &kp RA(K26)  &kp K40  &trans
