@@ -11,11 +11,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
-#define SYMB 1
-#define NUMS 2
-#define ACCENT 3
-#define GAMES 4
-#define FUNCTION 5
+#define SWITCH 1
+#define SYMB 2
+#define NUMS 3
+#define ACCENT 4
+#define GAMES 5
+#define FUNCTION 6
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
@@ -59,15 +60,6 @@
     };
 
     behaviors {
-        // change layer when hold, sticky layer when tapped
-        mo_sticky: behavior_move_sticky {
-            compatible = "zmk,behavior-hold-tap";
-            label = "mo_sticky";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&sl>;
-        };
         // apply modifier when hold, sticky modifier when tapped
         kp_sticky: behavior_key_sticky {
             compatible = "zmk,behavior-hold-tap";
@@ -76,6 +68,28 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
+        };
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+        comma_semi: behaviour_comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            label = "COMMA_SEMI";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        symb_num: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo SYMB>, <&mo NUMS>;
         };
     };
 
@@ -90,38 +104,59 @@
                 &sl ACCENT  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
                 // <escape> -> <ctrl>     A       U       I       E      ,
-                &mt LCTRL ESCAPE       &kp A   &kp U   &kp I   &kp E  &kp COMMA
+                &mt LCTRL ESCAPE       &kp A   &kp U   &kp I   &kp E  &comma_semi
                 // C        T       S       R       N       M
                 &kp C      &kp T   &kp S   &kp R   &kp N   &kp M
 
-                // :          Z       Y       X       .          '
-                &kp COLON   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
+                // change layout      Z       Y       X       .          '
+                &mo SWITCH   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
                 // <alt>         <symbol>             <space>               <shift>           <super> 
-                &kp LALT   &mo_sticky SYMB SYMB    &lt NUMS SPACE  &kp_sticky RSHIFT RSHIFT  &kp LEFT_WIN
+                &kp LALT   &kp_sticky RSHIFT RSHIFT  &lt FUNCTION SPACE  &symb_num   &kp LEFT_WIN
                 >;
+        };
+
+        switch_layer {
+            bindings = <
+
+                &none &none &none &none &none &none
+                // bluetooth profile selection
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4 &bt BT_CLR
+
+                // output selection
+                &none &out OUT_BLE &out OUT_USB &none &none &none
+                // change layout
+                &none  &trans  &tog SYMB  &none  &tog NUMS  &none
+
+                &none &none &none &none &none &none
+                // change layout
+                &none &none &tog GAMES &none &tog FUNCTION &none
+
+                &none &none &none &none &none
+            >;
         };
 
         symbol_layer {
             bindings = <
                 //              !            @           #       $       %
-                &trans       &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
+                &trans     &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
                 // ^      &          *          (          )       <backspace>
                 &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR     &kp DEL
 
-                // <caps>      [        ]            {          }           ; 
-                &kp CAPS  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &kp SEMI
+                //          ?              =          +        -           :
+                &trans   &kp LS(N6)   &kp EQUAL  &kp PLUS   &kp MINUS   &kp COLON
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
-                //         `                 =          +        -           ?
-                &trans  &backtick_double  &kp EQUAL  &kp PLUS   &kp MINUS   &kp LS(N6)
-                // <--        ~           <              >           /      -->
-                &kp HOME  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp END
+
+                //               [        ]            {          }           
+                &tog SYMB  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &trans
+                //        `             ~           <              >           /     
+                &backtick_double  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp ENTER
 
                 //                    
-                &trans    &trans       &kp UNDERSCORE       &mo FUNCTION     &trans
+                &trans    &kp CAPS       &kp UNDERSCORE       &trans     &trans
                 >;
         };
         
@@ -133,17 +168,17 @@
                 //  6       7        8        9               mute
                 &kp N6    &kp N7   &kp N8   &kp N9   &trans    &kp BACKSPACE
 
-                //                                          .       ,
-                &trans  &trans   &trans     &trans      &kp DOT  &kp COMMA
+                //          ?              =          +        -           ,
+                &trans   &kp LS(N6)   &kp EQUAL  &kp PLUS   &kp MINUS   &kp COMMA
                 // <-       \/          /\      ->       0  
                 &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp N0 &trans
 
                 //  
-                &kp MINUS &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans
+                &tog NUMS &trans &trans &trans &kp DOT &trans
+                &trans    &trans &trans &trans &trans &kp ENTER
 
                 //
-                &trans    &trans       &trans        &trans  &trans
+                &trans    &trans       &trans        &tog NUMS  &trans
                 >;
         };
 
@@ -174,7 +209,7 @@
         gaming_layer {
             bindings = <
                 //
-                &kp   TAB   &trans   &kp Q   &kp W    &kp E    &trans
+                &kp   TAB   &trans   &kp Q   &kp W    &kp E    &kp F3
                 //
                 &trans      &trans   &kp UP   &trans   &trans   &trans
 
@@ -184,12 +219,12 @@
                 &trans        &kp LEFT   &kp DOWN   &kp RIGHT   &trans   &trans
 
                 //
-                &kp F3  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5
+                &tog GAMES  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5
                 //
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
                 // <disable>   <disable>           <maj>       <disable>
-                &tog GAMES    &kp LSHIFT  &trans   &kp LSHIFT   &tog GAMES
+                &kp LEFT_ALT  &kp LSHIFT  &kp SPACE &kp LSHIFT   &kp LEFT_WIN
                 >;
         };
 
@@ -200,13 +235,10 @@
                 &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  
                 &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11 
 
-                // output selection 
-                &trans &out OUT_BLE &out OUT_USB &trans &trans &trans
-                // bluetooth profile selection
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4   &bt BT_CLR
-
+                &none &none &none &none &none &none
+                &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END &none &none
                 //
-                &none   &none   &none   &none   &tog GAMES   &none   
+                &tog FUNCTION   &none   &none   &none   &none   &none   
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
                 //
