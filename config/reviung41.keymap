@@ -13,10 +13,9 @@
 #define DEFAULT 0
 #define SWITCH 1
 #define SYMB 2
-#define NUMS 3
-#define ACCENT 4
-#define GAMES 5
-#define FUNCTION 6
+#define ACCENT 3
+#define GAMES 4
+#define FUNCTION 5
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
@@ -30,6 +29,12 @@
 #define K43 KEYPRESS_FROM_HID(0x31)
 #define K53 KEYPRESS_FROM_HID(0x38)
 #define K86 KEYPRESS_FROM_HID(0x64)
+
+
+&sk {
+    release-after-ms = <1000>;
+    quick-release;
+};
 
 
 / {
@@ -69,13 +74,14 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
         };
-        mo_tog: behavior_mo_tog {
-            compatible = "zmk,behavior-hold-tap";
-            label = "mo_tog";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
+
+        // mod morph
+        dot_colon: behaviour_dot_colon {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOT_COLON";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         comma_semi: behaviour_comma_semi {
             compatible = "zmk,behavior-mod-morph";
@@ -84,12 +90,102 @@
             bindings = <&kp COMMA>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        symb_num: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+        quote_double: behaviour_quote_double {
+            compatible = "zmk,behavior-mod-morph";
+            label = "QUOTE_DOUBLE";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo SYMB>, <&mo NUMS>;
+            bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        excl1: reverse_shift_1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_1";
+            #binding-cells = <0>;
+            bindings =
+                <&kp EXCLAMATION>,
+                <&kp N1>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        at2: reverse_shift_2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_2";
+            #binding-cells = <0>;
+            bindings =
+                <&kp AT>,
+                <&kp N2>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        hash3: reverse_shift_3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_3";
+            #binding-cells = <0>;
+            bindings =
+                <&kp HASH>,
+                <&kp N3>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        dollar4: reverse_shift_4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_4";
+            #binding-cells = <0>;
+            bindings =
+                <&kp DOLLAR>,
+                <&kp N4>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        percent5: reverse_shift_5 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_5";
+            #binding-cells = <0>;
+            bindings =
+                <&kp PERCENT>,
+                <&kp N5>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        caret6: reverse_shift_6 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_6";
+            #binding-cells = <0>;
+            bindings =
+                <&caret>,
+                <&kp N6>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        amps7: reverse_shift_7 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_7";
+            #binding-cells = <0>;
+            bindings =
+                <&kp AMPERSAND>,
+                <&kp N7>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        star8: reverse_shift_8 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_8";
+            #binding-cells = <0>;
+            bindings =
+                <&kp ASTERISK>,
+                <&kp N8>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        lpar9: reverse_shift_9 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_9";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LEFT_PARENTHESIS>,
+                <&kp N9>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        rpar0: reverse_shift_0 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "NUMSH_0";
+            #binding-cells = <0>;
+            bindings =
+                <&kp RIGHT_PARENTHESIS>,
+                <&kp N0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -108,13 +204,13 @@
                 // C        T       S       R       N       M
                 &kp C      &kp T   &kp S   &kp R   &kp N   &kp M
 
-                // change layout      Z       Y       X       .          '
-                &mo SWITCH   &kp Z   &kp Y   &kp X   &kp DOT   &kp LS(COMMA)
+                // change layout    Z       Y       X       .            '
+                &mo SWITCH        &kp Z   &kp Y   &kp X   &dot_colon  &quote_double
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
-                // <alt>         <symbol>             <space>               <shift>           <super> 
-                &kp LALT   &kp_sticky RSHIFT RSHIFT  &lt FUNCTION SPACE  &symb_num   &kp LEFT_WIN
+                // <alt>       <shift>                    <space>       <symbols>      <super> 
+                &kp LALT   &kp_sticky LSHIFT LSHIFT  &lt FUNCTION SPACE  &mo SYMB    &kp LEFT_WIN
                 >;
         };
 
@@ -128,7 +224,7 @@
                 // output selection
                 &none &out OUT_BLE &out OUT_USB &none &none &none
                 // change layout
-                &none  &trans  &tog SYMB  &none  &tog NUMS  &none
+                &none  &trans  &tog SYMB  &none  &none  &none
 
                 &none &none &none &none &none &none
                 // change layout
@@ -140,49 +236,27 @@
 
         symbol_layer {
             bindings = <
-                //              !            @           #       $       %
-                &trans     &kp EXCL      &kp AT  &kp HASH  &kp DLLR  &kp PRCNT
-                // ^      &          *          (          )       <backspace>
-                &caret  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR     &kp DEL
+                //          !        @      #       $         %
+                &trans    &excl1   &at2  &hash3  &dollar4  &percent5
+                // ^        &       *       (        )       <backspace>
+                &caret6  &amps7  &star8   &lpar9   &rpar0     &kp DEL
 
-                //          ?              =          +        -           :
-                &trans   &kp LS(N6)   &kp EQUAL  &kp PLUS   &kp MINUS   &kp COLON
+                //             ?           =          +         -          _ 
+                &trans    &kp LS(N6)  &kp EQUAL  &kp PLUS  &kp MINUS  &kp UNDERSCORE
                 // <-       \/          /\        ->           |      <backslash>
                 &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
 
-                //               [        ]            {          }           
+                //             [        ]            {          }             
                 &tog SYMB  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &trans
-                //        `             ~           <              >           /     
+                //                     ~           <              >           /     
                 &backtick_double  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp ENTER
 
                 //                    
-                &trans    &kp CAPS       &kp UNDERSCORE       &trans     &trans
+                &trans    &kp LSHIFT   &kp SPACE    &trans     &trans
                 >;
         };
         
 
-        num_layer {
-            bindings = < 
-                //          1          2       3        4       5
-                &trans     &kp N1   &kp N2   &kp N3   &kp N4   &kp N5
-                //  6       7        8        9               mute
-                &kp N6    &kp N7   &kp N8   &kp N9   &trans    &kp BACKSPACE
-
-                //          ?              =          +        -           ,
-                &trans   &kp LS(N6)   &kp EQUAL  &kp PLUS   &kp MINUS   &kp COMMA
-                // <-       \/          /\      ->       0  
-                &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp N0 &trans
-
-                //  
-                &tog NUMS &trans &trans &trans &kp DOT &trans
-                &trans    &trans &trans &trans &trans &kp ENTER
-
-                //
-                &trans    &trans       &trans        &tog NUMS  &trans
-                >;
-        };
-
- 
         accent_layer {
             bindings = <
                 //              €               µ           °
@@ -201,7 +275,7 @@
                 &trans   &trans   &trans  &trans  &trans  &trans
 
                 //
-                &trans   &trans   &trans    &trans   &trans
+                &trans   &kp LSHIFT   &trans    &trans   &trans
                 >;
         };
 
@@ -223,8 +297,8 @@
                 //
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
-                // <disable>   <disable>           <maj>       <disable>
-                &kp LEFT_ALT  &kp LSHIFT  &kp SPACE &kp LSHIFT   &kp LEFT_WIN
+                //              <maj>                            
+                &kp LEFT_ALT  &kp LSHIFT  &kp SPACE   &none   &kp LEFT_WIN
                 >;
         };
 
@@ -235,7 +309,7 @@
                 &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  
                 &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11 
 
-                &none &none &none &none &none &none
+                &kp CAPS &none &none &none &none &none
                 &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END &none &none
                 //
                 &tog FUNCTION   &none   &none   &none   &none   &none   
