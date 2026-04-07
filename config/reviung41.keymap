@@ -18,17 +18,7 @@
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
-#define KEYPRESS_FROM_HID(hidcode) ((7 << 16) | hidcode)
-
-// usb-hid scancodes from their usual keycode equivalent
-#define K26 KEYPRESS_FROM_HID(0x2f)
-#define K27 KEYPRESS_FROM_HID(0x30)
-#define K40 KEYPRESS_FROM_HID(0x34)
-#define K41 KEYPRESS_FROM_HID(0x35)
-#define K43 KEYPRESS_FROM_HID(0x31)
-#define K53 KEYPRESS_FROM_HID(0x38)
-#define K86 KEYPRESS_FROM_HID(0x64)
-
+// #define KEYPRESS_FROM_HID(hidcode) ((7 << 16) | hidcode)
 
 &sk {
     release-after-ms = <1000>;
@@ -162,7 +152,7 @@
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
                 // <alt>       <shift>                    <space>       <symbols>      <super>
-                &kp LALT   &kp_sticky LSHIFT LSHIFT  &lt FUNCTION SPACE  &mo SYMB    &kp_sticky LEFT_WIN LEFT_WIN
+                &kp LALT   &kp_sticky LSHIFT LSHIFT  &lt FUNCTION SPACE  &mo SYMB    &kp_sticky LEFT_GUI LEFT_GUI
                 >;
         };
 
@@ -201,7 +191,7 @@
                 //             [        ]            {          }      `
                 &tog SYMB  &kp LBKT  &kp RBKT   &kp LBRC   &kp RBRC  &kp GRAVE
                 //                                 /
-                &trans  &trans  &trans  &trans  &kp FSLASH  &kp ENTER
+                &trans  &trans  &trans  &trans  &kp SLASH  &kp ENTER
 
                 //
                 &trans    &kp LSHIFT   &kp SPACE    &trans     &trans
@@ -228,7 +218,7 @@
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
                 //              <maj>
-                &kp LEFT_ALT  &kp LSHIFT  &kp SPACE   &none   &kp LEFT_WIN
+                &kp LEFT_ALT  &kp LSHIFT  &kp SPACE   &none   &kp LEFT_GUI
                 >;
         };
 
