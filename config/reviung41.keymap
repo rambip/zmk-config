@@ -13,8 +13,8 @@
 #define DEFAULT 0
 #define SWITCH 1
 #define SYMB 2
-#define GAMES 4
-#define FUNCTION 5
+#define GAMES 3
+#define FUNCTION 4
 
 // decimal HID code to keypress macro
 // see https://github.com/zmkfirmware/zmk/blob/94789a092c6d8ddf5ab5ad88eb011a4ece6b5cee/app/include/dt-bindings/zmk/hid_usage_pages.h
@@ -99,7 +99,7 @@
             label = "NUMSH_6";
             #binding-cells = <0>;
             bindings =
-                <&caret>,
+                <&kp CARET>,
                 <&kp N6>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -152,7 +152,7 @@
                 &kp M  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
                 // <escape> -> <ctrl>     A       U       I       E      ,
-                &mt LCTRL ESCAPE       &kp A   &kp U   &kp I   &kp E  &comma_semi
+                &mt LCTRL ESCAPE       &kp A   &kp U   &kp I   &kp E  &kp COMMA
                 // C        T       S       R       N       Lafayette magic key
                 &kp C      &kp T   &kp S   &kp R   &kp N   &kp SEMICOLON
 
