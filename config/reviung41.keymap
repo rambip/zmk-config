@@ -13,7 +13,6 @@
 #define DEFAULT 0
 #define SWITCH 1
 #define SYMB 2
-#define ACCENT 3
 #define GAMES 4
 #define FUNCTION 5
 
@@ -38,32 +37,6 @@
 
 
 / {
-    macros {
-        caret: caret {
-            compatible = "zmk,behavior-macro";
-            label = "caret";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp SPACE>;
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
-        backtick_double: backtick_double {
-            compatible = "zmk,behavior-macro";
-            label = "backtick_double";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp RIGHT_ALT>,
-                <&macro_tap>,
-                <&kp LEFT_BRACKET &kp LEFT_BRACKET>,
-                <&macro_release>,
-                <&kp RIGHT_ALT>;
-
-            tap-ms = <30>;
-            wait-ms = <30>;
-        };
-    };
-
     behaviors {
         // apply modifier when hold, sticky modifier when tapped
         kp_sticky: behavior_key_sticky {
@@ -76,27 +49,6 @@
         };
 
         // mod morph
-        dot_colon: behaviour_dot_colon {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOT_COLON";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        comma_semi: behaviour_comma_semi {
-            compatible = "zmk,behavior-mod-morph";
-            label = "COMMA_SEMI";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        quote_double: behaviour_quote_double {
-            compatible = "zmk,behavior-mod-morph";
-            label = "QUOTE_DOUBLE";
-            #binding-cells = <0>;
-            bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
         excl1: reverse_shift_1 {
             compatible = "zmk,behavior-mod-morph";
             label = "NUMSH_1";
@@ -195,22 +147,22 @@
         default_layer {
             bindings = <
                 // <tab>     B         É         P       O       W
-                &kp TAB   &kp B   &kp K53   &kp P   &kp O   &kp W              
-                // <accent>   V        D         L       J       <bsp>
-                &sl ACCENT  &kp V   &kp D     &kp L   &kp J    &kp BSPC
+                &kp TAB   &kp B   &kp O   &kp P   &kp MINUS   &kp W
+                // M     V        D         L       J       <bsp>
+                &kp M  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
                 // <escape> -> <ctrl>     A       U       I       E      ,
                 &mt LCTRL ESCAPE       &kp A   &kp U   &kp I   &kp E  &comma_semi
-                // C        T       S       R       N       M
-                &kp C      &kp T   &kp S   &kp R   &kp N   &kp M
+                // C        T       S       R       N       Lafayette magic key
+                &kp C      &kp T   &kp S   &kp R   &kp N   &kp SEMICOLON
 
                 // change layout    Z       Y       X       .            '
-                &mo SWITCH        &kp Z   &kp Y   &kp X   &dot_colon  &quote_double
+                &mo SWITCH        &kp Z   &kp Y   &kp X   &kp DOT  &kp SQT
                 // K      Q       G       H       F       <enter>
                 &kp K   &kp Q   &kp G   &kp H   &kp F    &kp ENTER
 
-                // <alt>       <shift>                    <space>       <symbols>      <super> 
-                &kp LALT   &kp_sticky LSHIFT LSHIFT  &lt FUNCTION SPACE  &mo SYMB    &kp LEFT_WIN
+                // <alt>       <shift>                    <space>       <symbols>      <super>
+                &kp LALT   &kp_sticky LSHIFT LSHIFT  &lt FUNCTION SPACE  &mo SYMB    &kp_sticky LEFT_WIN LEFT_WIN
                 >;
         };
 
@@ -241,43 +193,21 @@
                 // ^        &       *       (        )       <backspace>
                 &caret6  &amps7  &star8   &lpar9   &rpar0     &kp DEL
 
-                //             ?           =          +         -          _ 
-                &trans    &kp LS(N6)  &kp EQUAL  &kp PLUS  &kp MINUS  &kp UNDERSCORE
+                //             ?           =          <         >          +
+                &trans    &kp QUESTION  &kp EQUAL  &kp NUBS  &kp LS(NUBS)  &kp PLUS
                 // <-       \/          /\        ->           |      <backslash>
-                &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp RA(K41)  &kp LS(K41)
+                &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT   &kp PIPE    &kp BACKSLASH
 
-                //             [        ]            {          }             
-                &tog SYMB  &kp RA(N9)  &kp RA(N0)  &kp RA(N7)  &kp RA(N8)  &trans
-                //                     ~           <              >           /     
-                &backtick_double  &kp RA(K27)  &kp RA(COMMA)  &kp RA(DOT)  &kp K41  &kp ENTER
+                //             [        ]            {          }      `
+                &tog SYMB  &kp LBKT  &kp RBKT   &kp LBRC   &kp RBRC  &kp GRAVE
+                //                                 /
+                &trans  &trans  &trans  &trans  &kp FSLASH  &kp ENTER
 
-                //                    
+                //
                 &trans    &kp LSHIFT   &kp SPACE    &trans     &trans
                 >;
         };
-        
 
-        accent_layer {
-            bindings = <
-                //              €               µ           °
-                &trans &trans  &kp RA(E)   &kp RA(M)    &kp RA(SEMI)  &trans 
-                // hat              diaresis    
-                &kp K26  &trans   &kp LS(K26)   &trans   &trans   &trans   
-
-                //         à         ù       ` accent      é 
-                &trans  &kp K43   &kp K86   &kp RA(K26)  &kp K40  &trans
-                //     ç
-                &kp K27   &trans  &trans  &trans  &trans  &trans
-
-                //                           
-                &trans   &trans   &trans  &trans  &trans  &trans
-                // empty
-                &trans   &trans   &trans  &trans  &trans  &trans
-
-                //
-                &trans   &kp LSHIFT   &trans    &trans   &trans
-                >;
-        };
 
 
         gaming_layer {
@@ -297,7 +227,7 @@
                 //
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
-                //              <maj>                            
+                //              <maj>
                 &kp LEFT_ALT  &kp LSHIFT  &kp SPACE   &none   &kp LEFT_WIN
                 >;
         };
@@ -306,13 +236,13 @@
         function_layer {
             bindings = <
                 // FUNCTION KEYS
-                &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  
-                &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11 
+                &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
+                &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
 
                 &kp CAPS &none &none &none &none &none
                 &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END &none &none
                 //
-                &tog FUNCTION   &none   &none   &none   &none   &none   
+                &tog FUNCTION   &none   &none   &none   &none   &none
                 &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans  &trans  &kp PRINTSCREEN
 
                 //
