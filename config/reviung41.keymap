@@ -136,8 +136,8 @@
 
         default_layer {
             bindings = <
-                // <tab>     B         É         P       O       W
-                &kp TAB   &kp B   &kp O   &kp P   &kp MINUS   &kp W
+                // <tab>     B         -         P       O       W
+                &kp TAB   &kp B   &kp MINUS   &kp P   &kp O   &kp W
                 // M     V        D         L       J       <bsp>
                 &kp M  &kp V   &kp D     &kp L   &kp J    &kp BSPC
 
